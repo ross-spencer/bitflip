@@ -14,13 +14,16 @@ jobs:
       - name: Unshallow
         run: git fetch --prune --unshallow
       - name: Set up Go
-        uses: actions/setup-go@v1
+        uses: actions/setup-go@v2
         with:
-          go-version: 1.14.x
+          go-version: 1.15
       - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v1
+        uses: goreleaser/goreleaser-action@v2
         with:
           version: latest
-          args: release --rm-dist
+          args: release --clean
         env:
-          GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_ACCESS_TOKEN }}
+          # Delete and renable below for Brews.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
+          # Temporarily disabled.
+          # GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_ACCESS_TOKEN }}
