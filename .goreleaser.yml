@@ -1,4 +1,5 @@
 project_name: bitflip
+version: 2
 builds:
 - env: [CGO_ENABLED=0]
   goos:
@@ -33,24 +34,21 @@ archives:
 checksum:
   name_template: 'checksums.txt'
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  version_template: "{{ .Tag }}-next"
 changelog:
   sort: asc
   filters:
     exclude:
     - '^docs:'
     - '^test:'
-
-# Re-enable for brews.
-#brews:
-#  - name: bitflip
-#    github:
-#      owner: aybabtme
-#      name: homebrew-tap
-#    commit_author:
-#      name: goreleaserbot
-#      email: antoinegrondin@gmail.com
-
+brews:
+  - name: bitflip
+    repository:
+      owner: aybabtme
+      name: homebrew-tap
+    commit_author:
+      name: goreleaserbot
+      email: antoinegrondin@gmail.com
 nfpms:
   - package_name: bitflip
     maintainer: Antoine Grondin <antoinegrondin@gmail.com>
