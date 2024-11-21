@@ -22,8 +22,8 @@ jobs:
         with:
           version: latest
           args: release --clean
-        env:
-          # Delete and renable below for Brews.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
-          # Temporarily disabled.
-          # GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_ACCESS_TOKEN }}
+        #env:
+        # Delete and renable below for Brews.
+        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
+        # Temporarily disabled.
+        # GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_ACCESS_TOKEN }}
